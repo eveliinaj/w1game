@@ -136,6 +136,7 @@ namespace Quiz
                     break;
                 case ConsoleKey.DownArrow:
                     Console.WriteLine("You found the easter egg!");
+                    output = true;
                     break;
                 case ConsoleKey.N:
                 case ConsoleKey.E:
