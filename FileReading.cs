@@ -34,7 +34,7 @@ namespace Quiz
 
         public void ChooseFile()
         {
-            var dir = new DirectoryInfo("c:\\temp\\QuizQuestions");
+            var dir = new DirectoryInfo("..\\..\\..\\QuizQuestions");
             var files = dir.GetFiles();
 
             for (int i = 0; i < files.Length; i++)
