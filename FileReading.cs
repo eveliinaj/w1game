@@ -43,7 +43,10 @@ namespace Quiz
                 Console.WriteLine($"{i + 1}: {name.Substring(0, name.Length - 4)}");
             }
 
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.Black;
             Console.WriteLine("Choose a topic by inputting one of the numbers above and pressing enter.");
+            Console.ResetColor();
             var input = Console.ReadLine();
             int choice;
             while (!int.TryParse(input, out choice) || choice > files.Length || choice <= 0)

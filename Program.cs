@@ -29,13 +29,19 @@ namespace Quiz
                 bool answer = CheckInput();
                 if (answer == question.CorrectAnswer)
                 {
+                    Console.BackgroundColor = ConsoleColor.Green;
+                    Console.ForegroundColor = ConsoleColor.Black;
                     Console.WriteLine("Correct!");
+                    Console.ResetColor();
                     score++;
                     correctAnswers++;
                 }
                 else
                 {
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.Black;
                     Console.WriteLine("Incorrect!");
+                    Console.ResetColor();
                     if (score > 0)
                     {
                         score--;
@@ -61,7 +67,10 @@ namespace Quiz
 
         static string AskForUserName()
         {
+            Console.BackgroundColor = ConsoleColor.Cyan;
+            Console.ForegroundColor = ConsoleColor.Black;
             Console.WriteLine("What is your name?");
+            Console.ResetColor();
             var name = Console.ReadLine();
             while (name.Length <= 1)
             {
