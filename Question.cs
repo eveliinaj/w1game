@@ -10,6 +10,8 @@ namespace Quiz
         public string Questionstring { get; set; }
         public bool CorrectAnswer { get; set; }
 
+        public bool UserAnswer { get; set; }
+
 
         public Question(string question1, bool truefalse1)
         {

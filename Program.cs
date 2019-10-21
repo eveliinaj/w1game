@@ -27,6 +27,7 @@ namespace Quiz
                 Console.WriteLine($"Question {questionNumber}/{numberOfQuestions}");
                 Console.WriteLine(question.Questionstring);
                 bool answer = CheckInput();
+                question.UserAnswer = answer;
                 if (answer == question.CorrectAnswer)
                 {
                     Console.BackgroundColor = ConsoleColor.Green;
@@ -63,6 +64,31 @@ namespace Quiz
             {
                 Console.WriteLine($"Better luck next time {name}! Your total points are {score} and number of correct answers is {correctAnswers}.");
             }
+            Console.WriteLine();
+            Console.WriteLine("Would you like to see how you did with individual answers?");
+            bool showAnswers = CheckInput();
+            if (showAnswers)
+            {
+                Console.WriteLine();
+                for (int i = 0; i < questions.Length; i++)
+                {
+                    Console.WriteLine($"Question #{i + 1}: {questions[i].Questionstring}");
+                    var correctAnswer = questions[i].CorrectAnswer ? "yes" : "no";
+                    var userAnswer = questions[i].UserAnswer ? "yes" : "no";
+                    if (correctAnswer == userAnswer)
+                    {
+                        Console.WriteLine("Your answer was correct!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Your answer was wrong!");
+                    }
+                    Console.WriteLine($"Correct answer was {correctAnswer.ToUpper()} and you answered {userAnswer.ToUpper()}.");
+                    Console.WriteLine();
+                }
+            }
+            Console.WriteLine();
+            Console.WriteLine("Come back soon to see the new quizzes added to our service!");
         }
 
         static string AskForUserName()
