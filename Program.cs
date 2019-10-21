@@ -52,6 +52,8 @@ namespace Quiz
                 Thread.Sleep(500);
             }
             Console.Clear(); 
+                Console.BackgroundColor = ConsoleColor.Cyan;
+                Console.ForegroundColor = ConsoleColor.Black;
             if (correctAnswers > numberOfQuestions / 4 * 3)
             {
                 Console.WriteLine($"Well done {name}! Your total points are {score} and number of correct answers is {correctAnswers}.");
@@ -65,7 +67,13 @@ namespace Quiz
                 Console.WriteLine($"Better luck next time {name}! Your total points are {score} and number of correct answers is {correctAnswers}.");
             }
             Console.WriteLine();
+                Console.ResetColor();
+
+
+            Console.BackgroundColor = ConsoleColor.Green;
+            Console.ForegroundColor = ConsoleColor.Black;
             Console.WriteLine("Would you like to see how you did with individual answers?");
+            Console.ResetColor();
             bool showAnswers = CheckInput();
             if (showAnswers)
             {
@@ -83,12 +91,20 @@ namespace Quiz
                     {
                         Console.WriteLine("Your answer was wrong!");
                     }
+                    
+                    Console.WriteLine("Incorrect!");
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.Black;
                     Console.WriteLine($"Correct answer was {correctAnswer.ToUpper()} and you answered {userAnswer.ToUpper()}.");
+                    Console.ResetColor();
                     Console.WriteLine();
                 }
             }
             Console.WriteLine();
+            Console.BackgroundColor = ConsoleColor.Green;
+            Console.ForegroundColor = ConsoleColor.Black;
             Console.WriteLine("Come back soon to see the new quizzes added to our service!");
+            Console.ResetColor();
         }
 
         static string AskForUserName()
